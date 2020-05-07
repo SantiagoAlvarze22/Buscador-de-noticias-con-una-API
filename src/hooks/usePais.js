@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 
-const useSelect = (stateInicial, opciones) => {
+const usePais = (stateInicial, opciones) => {
 
     const [state, setState] = useState(stateInicial);
 
-    const SelectNoticas = () => (
+    const SelectPais = () => (
         <select
             className="browser-default"
             value={state}
@@ -17,7 +17,7 @@ const useSelect = (stateInicial, opciones) => {
         </select>
     )
 
-    return [state, SelectNoticas];
+    return [state, SelectPais];
 }
 
-export default useSelect;
+export default usePais;

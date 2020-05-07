@@ -8,16 +8,17 @@ function App() {
 
   //definir la categoria 
   const [categoria, setCategoria] = useState('');
-  const [noticias, setNoticias] = useState([])
+  const [paisSeleccionado, setPaisSeleccionado] = useState('');
+  const [noticias, setNoticias] = useState([]);
 
   useEffect(() => {
     const consultarAPI = async () => {
-      const url = `https://newsapi.org/v2/top-headlines?country=co&category=${categoria}&apiKey=d7f409410d404810b2844dec84a6429d`
+      const url = `https://newsapi.org/v2/top-headlines?country=${paisSeleccionado}&category=${categoria}&apiKey=d7f409410d404810b2844dec84a6429d`
       const respuesta = await axios.get(url)
       setNoticias(respuesta.data.articles)
     }
     consultarAPI();
-  }, [categoria])
+  }, [categoria, paisSeleccionado])
 
   return (
 
@@ -30,6 +31,7 @@ function App() {
       <div className="container white">
         <Formulario
           setCategoria={setCategoria}
+          setPaisSeleccionado={setPaisSeleccionado}
         />
         <ListadoNoticias
           noticias={noticias}
