@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './Formulario.module.css';
 import useSelect from '../hooks/useSelect';
 import usePais from '../hooks/usePais';
 import PropTypes from 'prop-types';
+import Error from './Error'
 
 
 const Formulario = ({ setCategoria, setPaisSeleccionado }) => {
@@ -31,11 +32,23 @@ const Formulario = ({ setCategoria, setPaisSeleccionado }) => {
 
     const [categoria, SelectNoticas] = useSelect('', OPCIONES)
 
-    const [pais, SelectPais] = usePais('', PAISES)
+    const [pais, SelectPais] = usePais('', PAISES);
+
+    const [error, setError] = useState(false);
 
     const buscarNoticia = e => {
         e.preventDefault();
 
+        //validar si seleccionò algo 
+
+        if (pais === '' || categoria === '') {
+            //ccargar el error
+            setError(true);
+            return;
+        }
+
+        //pasar los datos al componente principal al app
+        setError(false);
         setCategoria(categoria);
         setPaisSeleccionado(pais);
     }
@@ -46,6 +59,7 @@ const Formulario = ({ setCategoria, setPaisSeleccionado }) => {
                 <form
                     onSubmit={buscarNoticia}
                 >
+                    {error ? <Error mensaje="Todos los campos son obligatorios" /> : null}
                     <h2 className={styles.heading}>Encuentra Noticias por categoria y pais</h2>
                     <div className="input-field col s12">
                         <SelectPais />
