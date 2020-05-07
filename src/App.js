@@ -1,6 +1,7 @@
 import React, { Fragment, useState, useEffect } from 'react';
 import Header from './components/Header';
 import Formulario from './components/Formulario';
+import ListadoNoticias from './components/ListadoNoticias'
 import axios from 'axios';
 
 function App() {
@@ -30,7 +31,11 @@ function App() {
         <Formulario
           setCategoria={setCategoria}
         />
+        <ListadoNoticias
+          noticias={noticias}
+        />
       </div>
+
     </Fragment>
   );
 }
