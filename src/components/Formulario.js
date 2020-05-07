@@ -11,7 +11,6 @@ const Formulario = ({ setCategoria, setPaisSeleccionado }) => {
     const OPCIONES = [
         { value: 'general', label: 'General' },
         { value: 'business', label: 'Negocios' },
-        { value: 'entertaiment', label: 'Entretenimiento' },
         { value: 'health', label: 'Salud' },
         { value: 'science', label: 'Ciencia' },
         { value: 'sports', label: 'Deportes' },
