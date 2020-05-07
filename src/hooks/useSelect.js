@@ -10,7 +10,7 @@ const useSelect = (stateInicial, opciones) => {
             value={state}
             onChange={e => setState(e.target.value)}
         >
-            <option value="">--Seleccione--</option>
+            <option value="">--Seleccione Tipo--</option>
             {opciones.map(opcion => (
                 <option key={opcion.value} value={opcion.value}>{opcion.label}</option>
             ))}
