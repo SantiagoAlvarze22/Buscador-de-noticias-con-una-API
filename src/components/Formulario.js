@@ -2,6 +2,7 @@ import React from 'react';
 import styles from './Formulario.module.css'
 import useSelect from '../hooks/useSelect'
 
+
 const Formulario = ({ setCategoria }) => {
 
     const OPCIONES = [

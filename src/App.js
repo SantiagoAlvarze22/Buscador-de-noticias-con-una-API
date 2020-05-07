@@ -1,11 +1,22 @@
-import React, { Fragment, useState } from 'react';
+import React, { Fragment, useState, useEffect } from 'react';
 import Header from './components/Header';
 import Formulario from './components/Formulario';
+import axios from 'axios';
 
 function App() {
 
   //definir la categoria 
   const [categoria, setCategoria] = useState('');
+  const [noticias, setNoticias] = useState([])
+
+  useEffect(() => {
+    const consultarAPI = async () => {
+      const url = `https://newsapi.org/v2/top-headlines?country=co&category=${categoria}&apiKey=d7f409410d404810b2844dec84a6429d`
+      const respuesta = await axios.get(url)
+      setNoticias(respuesta.data.articles)
+    }
+    consultarAPI();
+  }, [categoria])
 
   return (
 
