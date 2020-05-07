@@ -15,7 +15,7 @@ function App() {
 
   useEffect(() => {
     const consultarAPI = async () => {
-      const url = `https://newsapi.org/v2/top-headlines?country=${paisSeleccionado}&category=${categoria}&apiKey=d7f409410d404810b2844dec84a6429d`
+      const url = `https://newsapi.org/v2/top-headlines?country=${paisSeleccionado}&category=${categoria}&apiKey=adc909b1ada645f9823c8bf40b5e59e8`
       const respuesta = await axios.get(url)
 
       setCargando(true)
@@ -28,6 +28,7 @@ function App() {
 
     }
     consultarAPI();
+    //eslint-disable-next-line
   }, [categoria, paisSeleccionado])
 
   const componente = (cargando) ? <Spinner /> : <ListadoNoticias
