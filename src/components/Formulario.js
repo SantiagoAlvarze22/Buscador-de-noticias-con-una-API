@@ -1,6 +1,7 @@
 import React from 'react';
-import styles from './Formulario.module.css'
-import useSelect from '../hooks/useSelect'
+import styles from './Formulario.module.css';
+import useSelect from '../hooks/useSelect';
+import PropTypes from 'prop-types';
 
 
 const Formulario = ({ setCategoria }) => {
@@ -29,7 +30,7 @@ const Formulario = ({ setCategoria }) => {
                 <form
                     onSubmit={buscarNoticia}
                 >
-                    <h2 className={styles.heading}>Encuentra Noticias por categoria</h2>
+                    <h2 className={styles.heading}>Encuentra Noticias por categoriay pais</h2>
                     <div className="input-field col s12">
                         <SelectNoticas />
                         <input
@@ -43,5 +44,9 @@ const Formulario = ({ setCategoria }) => {
         </div>
     )
 }
+Formulario.propTypes = {
+    setCategoria: PropTypes.func.isRequired
+}
+
 
 export default Formulario;
