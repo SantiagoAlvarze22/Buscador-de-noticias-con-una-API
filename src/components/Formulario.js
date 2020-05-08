@@ -75,7 +75,8 @@ const Formulario = ({ setCategoria, setPaisSeleccionado }) => {
     )
 }
 Formulario.propTypes = {
-    setCategoria: PropTypes.func.isRequired
+    setCategoria: PropTypes.func.isRequired,
+    setPaisSeleccionado: PropTypes.func.isRequired,
 }
 
 
